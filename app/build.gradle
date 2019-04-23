@@ -42,6 +42,9 @@ dependencies {
 
     //Firebase core
     implementation 'com.google.firebase:firebase-core:16.0.8'
+    
+    //ML Kit Dependency
+    implementation 'com.google.firebase:firebase-ml-vision:19.0.3'
 }
 
 apply plugin: 'com.google.gms.google-services'
