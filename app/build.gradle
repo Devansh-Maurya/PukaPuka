@@ -4,6 +4,8 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
+apply plugin: 'kotlin-kapt'
+
 android {
     compileSdkVersion 28
     defaultConfig {
@@ -23,6 +25,9 @@ android {
 }
 
 dependencies {
+
+    def lifecycle_version = "2.0.0"
+
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
@@ -50,6 +55,10 @@ dependencies {
     implementation 'com.camerakit:camerakit:1.0.0-beta3.10'
     implementation 'com.camerakit:jpegkit:0.1.0'
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.0.0'
+
+    //Android Lifecycle dependency
+    implementation "androidx.lifecycle:lifecycle-runtime:$lifecycle_version"
+    kapt "androidx.lifecycle:lifecycle-compiler:$lifecycle_version"
 }
 
 apply plugin: 'com.google.gms.google-services'
