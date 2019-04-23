@@ -7,12 +7,13 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity"
     android:orientation="vertical"
-    android:gravity="center">
+    android:gravity="center"
+    android:id="@+id/scanLinearLayout">
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:src="@drawable/sample"/>
+        android:src="@drawable/ic_book_scan"/>
 
     <Button
         android:id="@+id/scanButton"

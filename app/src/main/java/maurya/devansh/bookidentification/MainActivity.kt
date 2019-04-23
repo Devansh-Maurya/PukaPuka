@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        scanButton.setOnClickListener {
+        scanLinearLayout.setOnClickListener {
             val image = FirebaseVisionImage.fromBitmap(BitmapFactory.decodeResource(
                     resources, R.drawable.sample))
 
