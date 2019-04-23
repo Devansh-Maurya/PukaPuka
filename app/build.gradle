@@ -45,6 +45,9 @@ dependencies {
     //Constraint layout
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
 
+    //Intuit SDP
+    implementation 'com.intuit.sdp:sdp-android:1.0.6'
+
     //Firebase core
     implementation 'com.google.firebase:firebase-core:16.0.8'
 
