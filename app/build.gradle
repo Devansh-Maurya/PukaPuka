@@ -24,7 +24,7 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
     //Testing libraries
     testImplementation 'junit:junit:4.12'
@@ -42,7 +42,7 @@ dependencies {
 
     //Firebase core
     implementation 'com.google.firebase:firebase-core:16.0.8'
-    
+
     //ML Kit Dependency
     implementation 'com.google.firebase:firebase-ml-vision:19.0.3'
 
