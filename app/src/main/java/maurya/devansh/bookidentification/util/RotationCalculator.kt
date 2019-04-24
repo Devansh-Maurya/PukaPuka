@@ -23,7 +23,7 @@ import com.google.firebase.ml.vision.common.FirebaseVisionImageMetadata
  * orientation.
  */
 
-class RotationCalculator {
+object RotationCalculator {
 
     private val ORIENTATIONS = SparseIntArray()
 
@@ -36,7 +36,7 @@ class RotationCalculator {
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Throws(CameraAccessException::class)
-    private fun getRotationCompensation(activity: Activity, context: Context): Int {
+    public fun getRotationCompensation(activity: Activity, context: Context): Int {
         // Get the device's current rotation relative to its "native" orientation.
         // Then, from the ORIENTATIONS table, look up the angle the image must be
         // rotated to compensate for the device's rotation.
