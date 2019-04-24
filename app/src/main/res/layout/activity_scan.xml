@@ -9,7 +9,7 @@
     android:orientation="vertical">
 
     <com.camerakit.CameraKitView
-        android:id="@+id/camera"
+        android:id="@+id/cameraView"
         android:layout_width="match_parent"
         android:layout_height="0sp"
         android:layout_weight="1"
