@@ -8,13 +8,6 @@
     tools:context=".scan.CameraActivity"
     android:orientation="vertical">
 
-    <ImageView
-        android:id="@+id/previewImage"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_100sdp"
-        android:background="@android:color/black"
-        android:scaleType="centerInside"/>
-
     <com.camerakit.CameraKitView
         android:id="@+id/cameraView"
         android:layout_width="match_parent"
