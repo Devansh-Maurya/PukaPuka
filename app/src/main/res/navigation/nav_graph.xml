@@ -3,18 +3,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/scanOnboardActivity">
-
-    <activity
-        android:id="@+id/scanOnboardActivity"
-        android:name="maurya.devansh.bookidentification.scan.ScanOnboardActivity"
-        android:label="activity_main"
-        tools:layout="@layout/activity_main" >
-        
-    </activity>
-    <activity
-        android:id="@+id/cameraActivity"
-        android:name="maurya.devansh.bookidentification.scan.CameraActivity"
-        android:label="activity_camera"
-        tools:layout="@layout/activity_camera" />
+    app:startDestination="@id/scanOptionsFragment">
+    <fragment
+        android:id="@+id/scanOptionsFragment"
+        android:name="maurya.devansh.bookidentification.scan.ScanOptionsFragment"
+        android:label="ScanOptionsFragment">
+        <action
+            android:id="@+id/action_scanOptionsFragment_to_bookScanFragment"
+            app:destination="@id/bookScanFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/bookScanFragment"
+        android:name="maurya.devansh.bookidentification.scan.BookScanFragment"
+        android:label="fragment_book_scan"
+        tools:layout="@layout/fragment_book_scan" />
 </navigation>

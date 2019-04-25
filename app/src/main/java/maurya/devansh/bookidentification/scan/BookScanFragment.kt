@@ -1,26 +1,36 @@
 package maurya.devansh.bookidentification.scan
 
 import android.graphics.BitmapFactory
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import kotlinx.android.synthetic.main.activity_camera.*
+import kotlinx.android.synthetic.main.fragment_book_scan.*
 import android.util.Log
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import com.google.firebase.ml.vision.FirebaseVision
 import com.google.firebase.ml.vision.common.FirebaseVisionImage
 import com.google.firebase.ml.vision.text.FirebaseVisionText
 import maurya.devansh.bookidentification.R
-import org.apache.commons.text.similarity.LevenshteinDistance
 import java.lang.StringBuilder
 
 
-class CameraActivity : AppCompatActivity() {
+class BookScanFragment : Fragment() {
 
     private lateinit var lifecycleObservableCamera: LifecycleObservableCamera
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_camera)
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+
+        return inflater.inflate(R.layout.fragment_book_scan, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         lifecycleObservableCamera = LifecycleObservableCamera(this.lifecycle, cameraView)
 
         captureButton.setOnClickListener {
@@ -42,7 +52,7 @@ class CameraActivity : AppCompatActivity() {
 
         val result = detector.processImage(image)
             .addOnSuccessListener {
-                Toast.makeText(this, extractMeaningfulTextFromResult(it), Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, extractMeaningfulTextFromResult(it), Toast.LENGTH_SHORT).show()
                 Log.v("Text", extractMeaningfulTextFromResult(it))
             }
 
