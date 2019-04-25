@@ -1,5 +1,6 @@
 package maurya.devansh.bookidentification.scan
 
+import android.graphics.BitmapFactory
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_camera.*
@@ -13,26 +14,20 @@ import maurya.devansh.bookidentification.R
 
 class CameraActivity : AppCompatActivity() {
 
-    private lateinit var lifecycleObserverCamera: LifecycleObserverCamera
+    private lateinit var lifecycleObservervableCamera: LifecycleObservervableCamera
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_camera)
-        lifecycleObserverCamera = LifecycleObserverCamera(this.lifecycle, cameraView)
+        lifecycleObservervableCamera = LifecycleObservervableCamera(this.lifecycle, cameraView)
 
         captureButton.setOnClickListener {
             cameraView.captureImage { cameraKitView, bytes ->
-//                val bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.size)
+                val bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.size)
 
-                val metadata = FirebaseVisionImageMetadata.Builder()
-                    .setWidth(334) // 480x360 is typically sufficient for
-                    .setHeight(500) // image recognition
-                    .setFormat(FirebaseVisionImageMetadata.IMAGE_FORMAT_NV21)
-//                    .setRotation(RotationCalculator.getRotationCompensation(
-//                        this@CameraActivity, this@CameraActivity))
-                    .build()
+                previewImage.setImageBitmap(bitmap)
 
-                val image = FirebaseVisionImage.fromByteArray(bytes, metadata)
+                val image = FirebaseVisionImage.fromBitmap(bitmap)
 
                 scanImage(image)
             }

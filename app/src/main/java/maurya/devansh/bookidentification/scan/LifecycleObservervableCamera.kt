@@ -9,7 +9,7 @@ import com.camerakit.CameraKitView
  * Created by Devansh on 23/4/19.
  */
 
-class LifecycleObserverCamera(lifecycle: Lifecycle, val cameraKitView: CameraKitView) : LifecycleObserver {
+class LifecycleObservervableCamera(lifecycle: Lifecycle, val cameraKitView: CameraKitView) : LifecycleObserver {
 
     init {
         lifecycle.addObserver(this)
