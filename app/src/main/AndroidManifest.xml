@@ -11,7 +11,7 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
             tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".scan.ScanActivity">
+        <activity android:name=".scan.CameraActivity">
         </activity>
 
         <meta-data
