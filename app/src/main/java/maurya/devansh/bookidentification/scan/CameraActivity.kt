@@ -10,6 +10,7 @@ import com.google.firebase.ml.vision.FirebaseVision
 import com.google.firebase.ml.vision.common.FirebaseVisionImage
 import com.google.firebase.ml.vision.text.FirebaseVisionText
 import maurya.devansh.bookidentification.R
+import org.apache.commons.text.similarity.LevenshteinDistance
 import java.lang.StringBuilder
 
 
@@ -65,6 +66,7 @@ class CameraActivity : AppCompatActivity() {
         return stringBuilder.toString()
     }
 
+    //More ignore cases can be added later
     private fun containsMeaningfulText(string: String) =
                 !(string.contains("for sale", true)
                         || string.contains("fer sale", true)
