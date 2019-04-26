@@ -16,7 +16,6 @@ import kotlinx.android.synthetic.main.fragment_cover_scan.*
 import maurya.devansh.bookidentification.R
 import maurya.devansh.bookidentification.util.LifecycleObservableCamera
 
-
 class CoverScanFragment : Fragment() {
 
     private lateinit var lifecycleObservableCamera: LifecycleObservableCamera

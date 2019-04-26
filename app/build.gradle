@@ -63,8 +63,8 @@ dependencies {
     implementation 'com.github.bumptech.glide:glide:4.9.0'
     kapt 'com.github.bumptech.glide:compiler:4.9.0'
 
-    //Apache Commons Text
-    implementation 'org.apache.commons:commons-text:1.6'
+    //Volley
+    implementation 'com.android.volley:volley:1.1.1'
 
     //Android Lifecycle dependency
     implementation "androidx.lifecycle:lifecycle-runtime:$lifecycle_version"
