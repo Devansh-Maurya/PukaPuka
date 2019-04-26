@@ -5,16 +5,17 @@
     android:id="@+id/nav_graph"
     app:startDestination="@id/scanOptionsFragment">
     <fragment
-        android:id="@+id/scanOptionsFragment"
-        android:name="maurya.devansh.bookidentification.scan.ScanOptionsFragment"
-        android:label="ScanOptionsFragment">
-        <action
-            android:id="@+id/action_scanOptionsFragment_to_bookScanFragment"
-            app:destination="@id/bookScanFragment" />
-    </fragment>
-    <fragment
         android:id="@+id/bookScanFragment"
         android:name="maurya.devansh.bookidentification.scan.BookScanFragment"
         android:label="fragment_book_scan"
         tools:layout="@layout/fragment_book_scan" />
+    <fragment
+        android:id="@+id/scanOptionsFragment"
+        android:name="maurya.devansh.bookidentification.scan.ScanOptionsFragment"
+        android:label="fragment_scan_options"
+        tools:layout="@layout/fragment_scan_options" >
+        <action
+            android:id="@+id/action_scanOptionsFragment_to_bookScanFragment"
+            app:destination="@id/bookScanFragment" />
+    </fragment>
 </navigation>
