@@ -8,7 +8,7 @@
         android:id="@+id/bookScanFragment"
         android:name="maurya.devansh.bookidentification.screens.coverscan.CoverScanFragment"
         android:label="fragment_book_scan"
-        tools:layout="@layout/fragment_book_scan" >
+        tools:layout="@layout/fragment_cover_scan" >
         <action
             android:id="@+id/action_cover_scan_done"
             app:destination="@id/bookInfoFragment" />

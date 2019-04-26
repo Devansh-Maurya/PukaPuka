@@ -12,7 +12,7 @@ import androidx.navigation.fragment.findNavController
 import com.google.firebase.ml.vision.FirebaseVision
 import com.google.firebase.ml.vision.common.FirebaseVisionImage
 import com.google.firebase.ml.vision.text.FirebaseVisionText
-import kotlinx.android.synthetic.main.fragment_book_scan.*
+import kotlinx.android.synthetic.main.fragment_cover_scan.*
 import maurya.devansh.bookidentification.R
 import maurya.devansh.bookidentification.util.LifecycleObservableCamera
 
@@ -27,7 +27,7 @@ class CoverScanFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        return inflater.inflate(R.layout.fragment_book_scan, container, false)
+        return inflater.inflate(R.layout.fragment_cover_scan, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
