@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    tools:context=".scan.ScanOptionsFragment"
+    tools:context=".screens.options.ScanOptionsFragment"
     android:id="@+id/optionBookCoverScan">
 
     <ImageView

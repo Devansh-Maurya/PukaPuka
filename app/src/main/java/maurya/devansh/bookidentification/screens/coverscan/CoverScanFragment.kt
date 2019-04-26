@@ -1,4 +1,4 @@
-package maurya.devansh.bookidentification.scan
+package maurya.devansh.bookidentification.screens.coverscan
 
 import android.graphics.BitmapFactory
 import android.os.Bundle
@@ -13,10 +13,11 @@ import com.google.firebase.ml.vision.FirebaseVision
 import com.google.firebase.ml.vision.common.FirebaseVisionImage
 import com.google.firebase.ml.vision.text.FirebaseVisionText
 import maurya.devansh.bookidentification.R
+import maurya.devansh.bookidentification.util.LifecycleObservableCamera
 import java.lang.StringBuilder
 
 
-class BookScanFragment : Fragment() {
+class CoverScanFragment : Fragment() {
 
     private lateinit var lifecycleObservableCamera: LifecycleObservableCamera
 
@@ -31,7 +32,8 @@ class BookScanFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        lifecycleObservableCamera = LifecycleObservableCamera(this.lifecycle, cameraView)
+        lifecycleObservableCamera =
+            LifecycleObservableCamera(this.lifecycle, cameraView)
 
         captureButton.setOnClickListener {
             cameraView.captureImage { cameraKitView, bytes ->

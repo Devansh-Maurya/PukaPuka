@@ -1,4 +1,4 @@
-package maurya.devansh.bookidentification.scan
+package maurya.devansh.bookidentification
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -9,7 +9,7 @@ import androidx.navigation.findNavController
 import kotlinx.android.synthetic.main.activity_main.*
 import maurya.devansh.bookidentification.R
 
-class ScanOnboardActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

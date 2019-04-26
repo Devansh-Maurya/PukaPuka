@@ -1,4 +1,4 @@
-package maurya.devansh.bookidentification.scan
+package maurya.devansh.bookidentification.util
 
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleObserver
