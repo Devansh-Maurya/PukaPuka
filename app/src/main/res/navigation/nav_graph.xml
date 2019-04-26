@@ -8,7 +8,11 @@
         android:id="@+id/bookScanFragment"
         android:name="maurya.devansh.bookidentification.screens.coverscan.CoverScanFragment"
         android:label="fragment_book_scan"
-        tools:layout="@layout/fragment_book_scan" />
+        tools:layout="@layout/fragment_book_scan" >
+        <action
+            android:id="@+id/action_cover_scan_done"
+            app:destination="@id/bookInfoFragment" />
+    </fragment>
     <fragment
         android:id="@+id/scanOptionsFragment"
         android:name="maurya.devansh.bookidentification.screens.options.ScanOptionsFragment"
@@ -17,5 +21,15 @@
         <action
             android:id="@+id/action_scanOptionsFragment_to_bookScanFragment"
             app:destination="@id/bookScanFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/bookInfoFragment"
+        android:name="maurya.devansh.bookidentification.screens.bookinfo.BookInfoFragment"
+        android:label="fragment_book_info"
+        tools:layout="@layout/fragment_book_info" >
+        <argument
+            android:name="queryString"
+            app:argType="string"
+            android:defaultValue='""' />
     </fragment>
 </navigation>
