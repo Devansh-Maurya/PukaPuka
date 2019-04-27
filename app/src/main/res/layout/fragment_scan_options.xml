@@ -1,28 +1,126 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
-    tools:context=".screens.options.ScanOptionsFragment"
-    android:id="@+id/optionBookCoverScan">
+    android:layout_height="match_parent">
 
-    <ImageView
+    <TextView
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:src="@drawable/ic_book_scan"/>
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_10sdp"
+        android:paddingLeft="@dimen/_14sdp"
+        android:layout_marginLeft="@dimen/_6sdp"
+        android:text="Pukapuka"
+        android:textSize="@dimen/_24sdp"
+        android:textStyle="normal"
+        android:fontFamily="@font/riffic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/bookScanButton"
+    <LinearLayout
+        android:id="@+id/optionBookCoverScan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Scan!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/optionSearch"
+        app:layout_constraintEnd_toStartOf="@+id/optionBarCodeScan"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        tools:context=".screens.options.ScanOptionsFragment">
 
-</LinearLayout>
+        <ImageView
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="@dimen/_100sdp"
+            android:src="@drawable/ic_book_scan" />
+
+        <TextView
+            android:id="@+id/bookScanButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Scan Cover"
+            style="@style/OptionsTextStyle" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/optionBarCodeScan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/optionRecentlyViewed"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/optionBookCoverScan"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        tools:context=".screens.options.ScanOptionsFragment">
+
+        <ImageView
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="@dimen/_100sdp"
+            android:src="@drawable/ic_bar_code_scan" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Scan Bar Code"
+            style="@style/OptionsTextStyle"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/optionSearch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/optionRecentlyViewed"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/optionBookCoverScan"
+        tools:context=".screens.options.ScanOptionsFragment">
+
+        <ImageView
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="@dimen/_100sdp"
+            android:src="@drawable/ic_search" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Search"
+            style="@style/OptionsTextStyle"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/optionRecentlyViewed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/optionSearch"
+        app:layout_constraintTop_toBottomOf="@+id/optionBarCodeScan"
+        tools:context=".screens.options.ScanOptionsFragment">
+
+        <ImageView
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="@dimen/_100sdp"
+            android:src="@drawable/ic_recent_books" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Recent Books"
+            style="@style/OptionsTextStyle"/>
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
