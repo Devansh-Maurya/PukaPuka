@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -26,7 +27,7 @@ import org.json.JSONArray
 import org.json.JSONObject
 import java.net.URLEncoder
 
-class BooksListFragment : Fragment() {
+class BooksListFragment : Fragment(), OnBookItemSelectedListener {
 
     private val args: BooksListFragmentArgs by navArgs()
 
@@ -70,11 +71,15 @@ class BooksListFragment : Fragment() {
 
     }
 
+    override fun onBookItemSelected(bookVolume: String) {
+        val action = BooksListFragmentDirections.actionBookSelected(bookVolume)
+        findNavController().navigate(action)
+    }
 
     private fun setUpRecyclerView(recyclerView: RecyclerView, booksList: List<BooksListItem>) {
         recyclerView.apply {
             layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
-            adapter = BooksListAdapter(booksList)
+            adapter = BooksListAdapter(booksList, this@BooksListFragment)
         }
     }
 

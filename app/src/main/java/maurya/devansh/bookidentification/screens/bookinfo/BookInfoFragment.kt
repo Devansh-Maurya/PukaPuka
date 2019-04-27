@@ -13,7 +13,6 @@ import com.android.volley.Response
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
 import maurya.devansh.bookidentification.R
-import java.net.URLEncoder
 
 class BookInfoFragment : Fragment() {
 
@@ -26,10 +25,10 @@ class BookInfoFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        Log.v("querystring", args.queryString)
+        Log.v("querystring", args.bookVolumeId)
 
         val queue = Volley.newRequestQueue(context)
-        val url = "https://www.googleapis.com/books/v1/volumes?q=" + URLEncoder.encode(args.queryString)
+        val url = "https://www.googleapis.com/books/v1/volumes/" + args.bookVolumeId
 
         val jsonObjectRequest = JsonObjectRequest(Request.Method.GET, url, null,
             Response.Listener {

@@ -12,8 +12,7 @@
         <action
             android:id="@+id/action_coverScanDone"
             app:destination="@id/booksListFragment"
-            app:enterAnim="@anim/nav_default_pop_exit_anim"
-            app:popUpTo="@+id/scanOptionsFragment" />
+            app:enterAnim="@anim/nav_default_pop_exit_anim" />
     </fragment>
     <fragment
         android:id="@+id/scanOptionsFragment"
@@ -30,7 +29,7 @@
         android:label="fragment_book_info"
         tools:layout="@layout/fragment_book_info" >
         <argument
-            android:name="queryString"
+            android:name="bookVolumeId"
             app:argType="string"
             android:defaultValue='""' />
     </fragment>
