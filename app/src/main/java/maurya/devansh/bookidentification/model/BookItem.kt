@@ -7,7 +7,8 @@ package maurya.devansh.bookidentification.model
 data class BookItem(
     val id: String = "",
     val title: String = "",
-    val authors: List<String> = listOf(),
+    val subtitle: String = "",
+    val authors: String = "",
     val publisher: String = "",
     val isbn13: String = "",
     val categories: List<String> = listOf(),

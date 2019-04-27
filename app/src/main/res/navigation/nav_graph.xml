@@ -22,6 +22,9 @@
         <action
             android:id="@+id/action_scanOptionsFragment_to_bookScanFragment"
             app:destination="@id/bookScanFragment" />
+        <action
+            android:id="@+id/action_scanOptionsFragment_to_placeholder"
+            app:destination="@id/placeholder" />
     </fragment>
     <fragment
         android:id="@+id/bookInfoFragment"
@@ -50,5 +53,10 @@
             app:destination="@id/scanOptionsFragment"
             app:popUpTo="@+id/scanOptionsFragment"
             app:popUpToInclusive="false" />
+    </fragment>
+    <fragment android:id="@+id/placeholder" >
+        <action
+            android:id="@+id/action_placeholder_to_booksListFragment"
+            app:destination="@id/booksListFragment" />
     </fragment>
 </navigation>
