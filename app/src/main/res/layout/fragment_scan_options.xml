@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,14 +9,14 @@
     <TextView
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="?attr/actionBarSize"
         android:paddingTop="@dimen/_10sdp"
         android:paddingBottom="@dimen/_10sdp"
         android:paddingStart="@dimen/_14sdp"
         android:text="Pukapuka"
+        style="@android:style/TextAppearance.Medium"
         android:textColor="@color/white"
         android:background="@color/colorPrimary"
-        android:textSize="@dimen/_24sdp"
         android:textStyle="bold"
         android:fontFamily="@font/proza_libre"
         app:layout_constraintEnd_toEndOf="parent"
