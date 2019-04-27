@@ -29,8 +29,6 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:clipToPadding="true"
-        android:paddingTop="@dimen/_10sdp"
-        android:paddingBottom="@dimen/_10sdp"/>
+        android:clipToPadding="true"/>
 
 </LinearLayout>
