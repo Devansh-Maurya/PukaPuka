@@ -70,6 +70,7 @@ class BooksListFragment : Fragment() {
 
     }
 
+
     private fun setUpRecyclerView(recyclerView: RecyclerView, booksList: List<BooksListItem>) {
         recyclerView.apply {
             layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
