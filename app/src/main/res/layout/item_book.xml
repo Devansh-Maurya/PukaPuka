@@ -27,7 +27,9 @@
         android:layout_marginTop="@dimen/_16sdp"
         android:textSize="17sp"
         android:ellipsize="end"
-        android:maxLines="2"
+        android:maxLines="3"
+        android:textStyle="bold"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.09"
         app:layout_constraintStart_toEndOf="@+id/imageView"
@@ -36,17 +38,37 @@
         tools:text="@tools:sample/lorem" />
 
     <TextView
+        android:id="@+id/subtitleTV"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/_8sdp"
+        android:layout_marginRight="@dimen/_8sdp"
+        android:textSize="13sp"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.523"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintWidth_percent="60"
+        tools:text="@tools:sample/lorem"
+        android:layout_marginTop="@dimen/_4sdp"
+        app:layout_constraintTop_toBottomOf="@+id/titleTV"/>
+
+    <TextView
         android:id="@+id/authorsTV"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:textSize="14sp"
+        android:textSize="15sp"
         android:layout_marginLeft="@dimen/_8sdp"
         android:layout_marginRight="@dimen/_8sdp"
-        android:layout_marginTop="@dimen/_10sdp"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageView"
-        app:layout_constraintTop_toBottomOf="@+id/titleTV"
-        tools:text="Authors" />
+        tools:text="Authors"
+        app:layout_constraintHorizontal_bias="0.0"
+        android:layout_marginTop="@dimen/_12sdp"
+        app:layout_constraintTop_toBottomOf="@+id/subtitleTV"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

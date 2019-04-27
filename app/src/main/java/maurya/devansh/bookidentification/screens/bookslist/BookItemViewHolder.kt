@@ -19,6 +19,14 @@ class BookItemViewHolder(view: View) : BaseViewHolder(view) {
                 Glide.with(this).load(item.smallThumbnailUrl).into(imageView)
             }
             titleTV.text = item.title
+
+            if (item.subtitle.isEmpty())
+                subtitleTV.visibility = View.GONE
+            else {
+                subtitleTV.visibility = View.VISIBLE
+                subtitleTV.text = item.subtitle
+            }
+
             authorsTV.text = item.authors
         }
     }

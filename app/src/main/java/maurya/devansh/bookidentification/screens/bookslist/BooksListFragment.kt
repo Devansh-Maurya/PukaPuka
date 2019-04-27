@@ -19,6 +19,7 @@ import maurya.devansh.bookidentification.R
 import maurya.devansh.bookidentification.consts.GoogleBooksVolumesListConsts
 import maurya.devansh.bookidentification.extensions.getAuthorsListAsString
 import maurya.devansh.bookidentification.extensions.getSmallThumbnailImageUrl
+import maurya.devansh.bookidentification.extensions.getSubtitle
 import maurya.devansh.bookidentification.extensions.getTitle
 import maurya.devansh.bookidentification.model.BooksListItem
 import org.json.JSONArray
@@ -82,6 +83,7 @@ class BooksListFragment : Fragment() {
         bookListItem.apply {
             id = item[GoogleBooksVolumesListConsts.ID] as String
             title = item.getTitle()
+            subtitle = item.getSubtitle()
             authors = item.getAuthorsListAsString()
             smallThumbnailUrl = item.getSmallThumbnailImageUrl()
         }

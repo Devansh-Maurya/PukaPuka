@@ -3,6 +3,7 @@ package maurya.devansh.bookidentification.extensions
 import maurya.devansh.bookidentification.consts.GoogleBooksVolumesListConsts.AUTHORS
 import maurya.devansh.bookidentification.consts.GoogleBooksVolumesListConsts.IMAGE_LINKS
 import maurya.devansh.bookidentification.consts.GoogleBooksVolumesListConsts.SMALL_THUMBNAIL_URL
+import maurya.devansh.bookidentification.consts.GoogleBooksVolumesListConsts.SUBTITLE
 import maurya.devansh.bookidentification.consts.GoogleBooksVolumesListConsts.TITLE
 import maurya.devansh.bookidentification.consts.GoogleBooksVolumesListConsts.VOLUME_INFO
 import org.json.JSONArray
@@ -49,5 +50,12 @@ fun JSONObject.getSmallThumbnailImageUrl(): String {
 }
 
 fun JSONObject.getTitle() = getVolumeInfo().get(TITLE) as String
+
+fun JSONObject.getSubtitle(): String {
+    val volumeInfo = getVolumeInfo()
+    return if (volumeInfo.has(SUBTITLE)) {
+        volumeInfo.get(SUBTITLE) as String
+    } else ""
+}
 
 private fun JSONObject.getVolumeInfo(): JSONObject = get(VOLUME_INFO) as JSONObject

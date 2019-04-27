@@ -7,6 +7,7 @@ package maurya.devansh.bookidentification.model
 data class BooksListItem(
     var id: String = "",
     var title: String = "",
+    var subtitle: String = "",
     var authors: String = "",
     var smallThumbnailUrl: String = ""
 )
