@@ -19,6 +19,7 @@ import maurya.devansh.bookidentification.R
 import maurya.devansh.bookidentification.consts.GoogleBooksVolumesListConsts
 import maurya.devansh.bookidentification.extensions.getAuthorsListAsString
 import maurya.devansh.bookidentification.extensions.getSmallThumbnailImageUrl
+import maurya.devansh.bookidentification.extensions.getTitle
 import maurya.devansh.bookidentification.model.BooksListItem
 import org.json.JSONArray
 import org.json.JSONObject
@@ -38,23 +39,27 @@ class BooksListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
         val queue = Volley.newRequestQueue(context)
-        val url = "https://www.googleapis.com/books/v1/volumes?q=" + URLEncoder.encode(args.queryString)
+        val url = "https://www.googleapis.com/books/v1/volumes?q=" + URLEncoder.encode(args.queryString) +
+                "&projection=lite" + "&maxResults=3"
 
         val jsonObjectRequest = JsonObjectRequest(
             Request.Method.GET, url, null,
             Response.Listener {
+                Log.d("url", url)
                 Log.d("Response", it.toString())
 
                 val booksList = arrayListOf<BooksListItem>()
 
-                val items = it["items"] as JSONArray
+                if (it["totalItems"] as Int > 0) {
+                    val items = it["items"] as JSONArray
 
-                for (i in 0 until items.length()) {
-                    val bookListItem = makeBookListItemObject(items[i] as JSONObject)
-                    booksList.add(bookListItem)
+                    for (i in 0 until items.length()) {
+                        val bookListItem = makeBookListItemObject(items[i] as JSONObject)
+                        booksList.add(bookListItem)
+                    }
+
+                    setUpRecyclerView(view.recyclerView, booksList)
                 }
-
-                setUpRecyclerView(view.recyclerView, booksList)
             },
             Response.ErrorListener {
                 Log.d("Error", "Error")
@@ -76,7 +81,7 @@ class BooksListFragment : Fragment() {
 
         bookListItem.apply {
             id = item[GoogleBooksVolumesListConsts.ID] as String
-            title = item[GoogleBooksVolumesListConsts.TITLE] as String
+            title = item.getTitle()
             authors = item.getAuthorsListAsString()
             smallThumbnailUrl = item.getSmallThumbnailImageUrl()
         }
