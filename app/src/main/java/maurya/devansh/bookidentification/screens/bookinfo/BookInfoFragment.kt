@@ -90,6 +90,15 @@ class BookInfoFragment : Fragment() {
                     view.descriptionTV.text = it
             })
 
+            buyLink.observe(this@BookInfoFragment, Observer {
+                if (it.isNotEmpty()) {
+                    view.buyButton.visibility = View.VISIBLE
+                    view.buyButton.setOnClickListener { }
+                }
+                else
+                    view.buyButton.visibility = View.GONE
+            })
+
         }
     }
 

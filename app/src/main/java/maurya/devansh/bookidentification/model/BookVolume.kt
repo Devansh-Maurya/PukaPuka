@@ -17,5 +17,5 @@ data class BookVolume (
     var imageUrl: String = "",
     var pageCount: Int = 0,
     var description: String = "",
-    var publishedDate: String =""
+    var buyLink: String = ""
 )

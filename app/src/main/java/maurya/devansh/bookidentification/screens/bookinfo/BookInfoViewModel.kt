@@ -27,6 +27,7 @@ class BookInfoViewModel(bookVolumeId: String) : ViewModel(), KoinComponent {
     val imageUrl = MutableLiveData<String>()
     val pageCount = MutableLiveData<String>()
     val description = MutableLiveData<String>()
+    val buyLink = MutableLiveData<String>()
 
     init {
         mediatorLiveData.addSource(bookInfoRepository.getBookVolumeObject(bookVolumeId)) {
@@ -42,6 +43,7 @@ class BookInfoViewModel(bookVolumeId: String) : ViewModel(), KoinComponent {
                 pageCount.value = it.pageCount.toString() + " pages ⚫ "
                 description.value = if (it.description.isNotEmpty()) fromHtml(it.description).toString()
                                     else "Not available"
+                buyLink.value = it.buyLink
             }
         }
 
