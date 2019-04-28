@@ -47,8 +47,8 @@ class BookInfoViewModel(bookVolumeId: String) : ViewModel(), KoinComponent {
                 buyLink.value = it.buyLink
 
                 shareText.value = "Check out ${it.title}" +
-                        if (it.subtitle.isNotEmpty()) ": ${it.subtitle}" else "" + " book" +
-                                "\n${it.bookVolumeRequestUrl}\n\n-By *Pakupaku app"
+                        if (it.subtitle.isNotEmpty()) ": ${it.subtitle}" else {""} + " book" +
+                                "\n\n${it.bookVolumeRequestUrl}\n\n-By *Pakupaku* app"
             }
         }
 
