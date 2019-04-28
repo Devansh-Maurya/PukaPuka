@@ -66,6 +66,14 @@ fun JSONObject.getSmallThumbnailImageUrl(): String {
     } else ""
 }
 
+fun JSONObject.getThumbnailImageUrl(): String {
+    val volumeInfo = getVolumeInfo()
+    return if (volumeInfo.has(IMAGE_LINKS)) {
+        val imageLinks = getVolumeInfo().get(IMAGE_LINKS) as JSONObject
+        imageLinks.get(THUMBNAIL_URL) as String
+    } else ""
+}
+
 fun JSONObject.getTitle() = getVolumeInfo().get(TITLE) as String
 
 fun JSONObject.getSubtitle(): String {

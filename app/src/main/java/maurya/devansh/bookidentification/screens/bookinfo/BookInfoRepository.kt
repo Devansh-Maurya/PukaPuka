@@ -57,10 +57,7 @@ class BookInfoRepository(private val context: Context) {
             description = item.getDescription()
             selfLink = item.getSelfLink()
             infoLink = item.getInfoLink()
-
-            imageUrl = item.getCoverImageUrl()
-            if (imageUrl.isEmpty())
-                imageUrl = item.getSmallThumbnailImageUrl()
+            imageUrl = item.getThumbnailImageUrl()
         }
 
         return bookVolume

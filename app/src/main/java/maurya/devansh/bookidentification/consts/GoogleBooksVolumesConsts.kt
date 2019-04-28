@@ -11,6 +11,7 @@ object GoogleBooksVolumesConsts {
     const val SUBTITLE = "subtitle"
     const val AUTHORS = "authors"
     const val SMALL_THUMBNAIL_URL = "smallThumbnail"
+    const val THUMBNAIL_URL = "thumbnail"
     const val IMAGE_LINKS = "imageLinks"
     const val VOLUME_INFO = "volumeInfo"
     const val PUBLISHED_DATE = "publishedDate"
