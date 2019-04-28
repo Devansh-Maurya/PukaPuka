@@ -22,17 +22,15 @@
                     android:id="@+id/backgroundImage"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@drawable/sample"
                     android:scaleType="centerCrop"
-                    android:foreground="#99000000"/>
+                    android:foreground="#77000000"/>
             </LinearLayout>
 
             <ImageView
                 android:id="@+id/coverImageView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/sample"
-                android:padding="@dimen/_10sdp"/>
+                android:padding="@dimen/_14sdp"/>
         </FrameLayout>
 
         <TextView
@@ -82,15 +80,33 @@
         <include
             layout="@layout/divider" />
 
-        <TextView
-            android:id="@+id/ratingsTV"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_8sdp"
             android:layout_marginBottom="@dimen/_8sdp"
             android:layout_marginStart="@dimen/_8sdp"
             android:layout_marginEnd="@dimen/_8sdp"
-            android:gravity="center_horizontal"/>
+            android:gravity="center_horizontal"
+            android:layout_gravity="center_horizontal"
+            android:orientation="horizontal" >
+            
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="⭐ " />
+
+            <TextView
+                android:id="@+id/ratingsTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/ratingsCountTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
 
         <include
             layout="@layout/divider" />
@@ -120,30 +136,68 @@
         <include
             layout="@layout/divider" />
 
-        <TextView
-            android:id="@+id/pagesPublishedISBNTV"
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:paddingStart="@dimen/_16sdp"
             android:paddingEnd="@dimen/_16sdp"
-            android:textSize="12sp"
             android:paddingTop="@dimen/_8sdp"
-            android:paddingBottom="@dimen/_8sdp"/>
+            android:paddingBottom="@dimen/_8sdp"
+            android:layout_gravity="center_horizontal">
+
+            <TextView
+                android:id="@+id/pageCountTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/publishedDateTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/isbn13TV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12sp" />
+
+        </LinearLayout>
 
         <include
             layout="@layout/divider" />
 
-        <Button
-            android:id="@+id/buyButton"
-            android:layout_width="wrap_content"
+        <LinearLayout android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_16sdp"
-            android:layout_gravity="center_horizontal"
-            android:text="Buy Now"
-            android:background="@color/colorPrimary"
-            android:textColor="@color/white"
-            android:layout_marginBottom="@dimen/_24sdp"/>
+            android:orientation="horizontal"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="@dimen/_16sdp" >
+
+            <Button
+                android:id="@+id/previewButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="Preview"
+                android:background="@color/colorPrimary"
+                android:textColor="@color/white"
+                android:layout_marginBottom="@dimen/_24sdp"
+                android:layout_marginRight="@dimen/_50sdp" />
+
+            <Button
+                android:id="@+id/buyButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:layout_gravity="center_horizontal"
+                android:text="Buy Now"
+                android:background="@color/colorPrimary"
+                android:textColor="@color/white"
+                android:layout_marginBottom="@dimen/_24sdp"/>
+        </LinearLayout>
 
     </LinearLayout>
 </ScrollView>

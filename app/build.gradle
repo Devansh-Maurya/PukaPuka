@@ -69,6 +69,12 @@ dependencies {
     //Volley
     implementation 'com.android.volley:volley:1.1.1'
 
+    // Koin for Android
+    implementation 'org.koin:koin-android:1.0.2'
+
+    //Koin for view model features
+    implementation "org.koin:koin-android-viewmodel:1.0.2"
+
     //Android Lifecycle dependency
     implementation "androidx.lifecycle:lifecycle-runtime:$lifecycle_version"
     kapt "androidx.lifecycle:lifecycle-compiler:$lifecycle_version"

@@ -5,17 +5,13 @@ import android.annotation.SuppressLint
 import android.graphics.Bitmap
 import android.graphics.drawable.Drawable
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.navArgs
-import com.android.volley.Request
-import com.android.volley.Response
-import com.android.volley.toolbox.JsonObjectRequest
-import com.android.volley.toolbox.Volley
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.bumptech.glide.request.target.CustomTarget
@@ -23,9 +19,7 @@ import com.bumptech.glide.request.transition.Transition
 import jp.wasabeef.glide.transformations.BlurTransformation
 import kotlinx.android.synthetic.main.fragment_book_info.view.*
 import maurya.devansh.bookidentification.R
-import maurya.devansh.bookidentification.extensions.*
-import maurya.devansh.bookidentification.model.BookVolume
-import org.json.JSONObject
+import maurya.devansh.bookidentification.util.fromHtml
 
 class BookInfoFragment : Fragment() {
 
@@ -43,35 +37,72 @@ class BookInfoFragment : Fragment() {
         viewModel = ViewModelProviders.of(this, viewModelFactory)
             .get(BookInfoViewModel::class.java)
 
+        //A blank observer for MediatorLiveData
+        viewModel.mediatorLiveData.observe(this, Observer {  })
+
+        observeBookVolumeInfoLiveDatas(view)
+
         return view
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        Log.v("querystring", args.bookVolumeId)
 
-        val queue = Volley.newRequestQueue(context)
-        val url = "https://www.googleapis.com/books/v1/volumes/" + args.bookVolumeId
-
-        val jsonObjectRequest = JsonObjectRequest(Request.Method.GET, url, null,
-            Response.Listener {
-                Log.d("Response", it.toString())
-                val bookVolume = makeBookVolumeObject(it)
-                setBookImage(view, bookVolume.imageUrl)
-            },
-            Response.ErrorListener {
-                Log.d("Error", "Error")
+    private fun observeBookVolumeInfoLiveDatas(view: View) {
+        viewModel.apply {
+            title.observe(this@BookInfoFragment, Observer {
+                view.titleTV.text = it
             })
 
-        queue.add(jsonObjectRequest)
+            subtitle.observe(this@BookInfoFragment, Observer {
+                if (it.isEmpty())
+                    view.subtitleTV.visibility = View.GONE
+                else {
+                    view.subtitleTV.visibility = View.VISIBLE
+                    view.subtitleTV.text = it
+                }
+            })
+
+            authors.observe(this@BookInfoFragment, Observer {
+                view.authorsTV.text = "by $it"
+            })
+
+            isbn13.observe(this@BookInfoFragment, Observer {
+                view.isbn13TV.text = " ISBN13 $it"
+            })
+
+            category.observe(this@BookInfoFragment, Observer {})
+
+            rating.observe(this@BookInfoFragment, Observer {
+                view.ratingsTV.text = "$it / 5"
+            })
+
+            ratingsCount.observe(this@BookInfoFragment, Observer {
+                view.ratingsCountTV.text = " ⚫ $it ${if (it > 1) "ratings" else "rating"}"
+            })
+
+            imageUrl.observe(this@BookInfoFragment, Observer {
+                setBookImage(view, it)
+            })
+
+            pageCount.observe(this@BookInfoFragment, Observer {
+                view.pageCountTV.text = "$it pages ⚫ "
+            })
+
+            description.observe(this@BookInfoFragment, Observer {
+                if (it.isNotEmpty()) {
+                    view.descriptionTV.text = fromHtml(it)
+                } else
+                    view.descriptionTV.text = "Not available"
+            })
+
+        }
     }
+
 
     @SuppressLint("CheckResult")
     private fun setBookImage(view: View, imageUrl: String) {
 
-        var bitmap: Bitmap
-
         val requestOptions = RequestOptions()
-        requestOptions.transform(BlurTransformation(24))
+        requestOptions.transform(BlurTransformation(20))
 
         Glide.with(context!!)
                 .asBitmap()
@@ -88,28 +119,5 @@ class BookInfoFragment : Fragment() {
                         view.coverImageView.invalidate()
                     }
                 })
-    }
-
-    private fun makeBookVolumeObject(item: JSONObject): BookVolume {
-        val bookVolume = BookVolume()
-
-        bookVolume.apply {
-            title = item.getTitle()
-            subtitle = item.getSubtitle()
-            authors = item.getAuthorsListAsString()
-            isbn13 = item.getISBN13()
-            category = item.getCategory()
-            rating = item.getRating()
-            ratingsCount = item.getRatingsCount()
-            pageCount = item.getPageCount()
-            description = item.getDescription()
-            publishedDate = item.getPublishedDate()
-            imageUrl = item.getCoverImageUrl()
-            if (imageUrl.isEmpty())
-                imageUrl = item.getSmallThumbnailImageUrl()
-        }
-
-        return bookVolume
-
     }
 }
