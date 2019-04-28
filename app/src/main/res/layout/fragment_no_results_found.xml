@@ -45,7 +45,7 @@
         android:gravity="center_horizontal"
         android:layout_marginStart="@dimen/_24sdp"
         android:layout_marginEnd="@dimen/_24sdp"
-        android:text="Try scanning book with some other angle or hold the camera steadily"
+        android:text="Try scanning book again or check network connectivity"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
         tools:layout_editor_absoluteX="41dp" />

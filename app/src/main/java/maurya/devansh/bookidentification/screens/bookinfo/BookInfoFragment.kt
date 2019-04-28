@@ -134,10 +134,11 @@ class BookInfoFragment : Fragment() {
                 .load(imageUrl)
                 .into(object : CustomTarget<Bitmap>() {
                     override fun onResourceReady(resource: Bitmap, transition: Transition<in Bitmap>?) {
-                        Glide.with(context!!).load(resource).apply(blurRequestOptions).into(view.backgroundImage)
+                        Glide.with(activity?.applicationContext!!).load(resource).apply(blurRequestOptions)
+                                .into(view.backgroundImage)
                                 .onLoadFailed(resources.getDrawable(R.drawable.ic_no_cover))
 
-                        Glide.with(context!!).load(resource)
+                        Glide.with(activity?.applicationContext!!).load(resource)
                                 .placeholder(R.drawable.placeholder_cover)
                                 .into(view.coverImageView)
                                 .onLoadFailed(resources.getDrawable(R.drawable.ic_no_cover))
