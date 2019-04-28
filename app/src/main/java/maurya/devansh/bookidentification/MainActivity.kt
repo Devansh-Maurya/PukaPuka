@@ -27,6 +27,8 @@ class MainActivity : AppCompatActivity() {
 
             R.id.noResultsFoundFragment -> navController.navigate(
                     R.id.action_noResultsFoundFragment_to_scanOptionsFragment)
+
+            else -> super.onBackPressed()
         }
 
     }
