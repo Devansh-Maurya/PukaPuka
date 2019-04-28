@@ -4,15 +4,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto" android:fitsSystemWindows="true"
     android:orientation="vertical">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        app:titleTextColor="@color/white"
-        app:title="Book"
-        app:menu="@menu/share_menu_item"
-        android:background="@color/colorPrimary"/>
-
     <ScrollView android:layout_width="match_parent"
         android:layout_height="wrap_content">
 

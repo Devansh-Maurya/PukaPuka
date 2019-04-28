@@ -16,6 +16,7 @@ import com.android.volley.Response
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
 import kotlinx.android.synthetic.main.fragment_books_list.view.*
+import maurya.devansh.bookidentification.MainActivity
 import maurya.devansh.bookidentification.R
 import maurya.devansh.bookidentification.consts.GoogleBooksVolumesConsts
 import maurya.devansh.bookidentification.extensions.getAuthorsListAsString
@@ -39,6 +40,8 @@ class BooksListFragment : Fragment(), OnBookItemSelectedListener {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
+        (activity as MainActivity).supportActionBar?.show()
 
         val queue = Volley.newRequestQueue(context)
         val url = "https://www.googleapis.com/books/v1/volumes?q=" + URLEncoder.encode(args.queryString) +

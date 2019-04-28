@@ -8,22 +8,6 @@
     tools:context=".screens.bookslist.BooksListFragment"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:paddingTop="@dimen/_10sdp"
-        android:paddingBottom="@dimen/_10sdp"
-        android:paddingStart="@dimen/_10sdp"
-        android:text="Book results"
-        style="@android:style/TextAppearance.Medium"
-        android:textColor="@color/white"
-        android:background="@color/colorPrimary"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"

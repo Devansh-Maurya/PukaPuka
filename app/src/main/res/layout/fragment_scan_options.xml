@@ -6,23 +6,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:paddingTop="@dimen/_10sdp"
-        android:paddingBottom="@dimen/_10sdp"
-        android:paddingStart="@dimen/_14sdp"
-        android:text="Pukapuka"
-        style="@android:style/TextAppearance.Medium"
-        android:textColor="@color/white"
-        android:background="@color/colorPrimary"
-        android:textStyle="bold"
-        android:fontFamily="@font/proza_libre"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <LinearLayout
         android:id="@+id/optionBookCoverScan"
         android:layout_width="wrap_content"
@@ -33,7 +16,7 @@
         app:layout_constraintEnd_toStartOf="@+id/optionBarCodeScan"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:layout_constraintTop_toTopOf="parent"
         tools:context=".screens.options.ScanOptionsFragment">
 
         <ImageView
@@ -60,12 +43,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/optionBookCoverScan"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:layout_constraintTop_toTopOf="parent"
         tools:context=".screens.options.ScanOptionsFragment">
 
-        <ImageView
-            android:layout_width="@dimen/_100sdp"
-            android:layout_height="@dimen/_100sdp"
+        <ImageView android:layout_width="@dimen/_100sdp" android:layout_height="@dimen/_100sdp"
             android:src="@drawable/ic_bar_code_scan" />
 
         <TextView
