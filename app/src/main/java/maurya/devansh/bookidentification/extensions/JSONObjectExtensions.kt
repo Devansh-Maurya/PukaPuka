@@ -141,3 +141,11 @@ fun JSONObject.getDescription(): String {
         volumeInfo.getString(DESCRIPTION)
     else ""
 }
+
+fun JSONObject.getPreviewLink(): String {
+
+}
+
+fun JSONObject.getBuyLink(): String {
+
+}

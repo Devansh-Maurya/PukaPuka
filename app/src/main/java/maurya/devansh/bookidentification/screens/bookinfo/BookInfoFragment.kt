@@ -19,7 +19,6 @@ import com.bumptech.glide.request.transition.Transition
 import jp.wasabeef.glide.transformations.BlurTransformation
 import kotlinx.android.synthetic.main.fragment_book_info.view.*
 import maurya.devansh.bookidentification.R
-import maurya.devansh.bookidentification.util.fromHtml
 
 class BookInfoFragment : Fragment() {
 
@@ -62,21 +61,21 @@ class BookInfoFragment : Fragment() {
             })
 
             authors.observe(this@BookInfoFragment, Observer {
-                view.authorsTV.text = "by $it"
+                view.authorsTV.text = it
             })
 
             isbn13.observe(this@BookInfoFragment, Observer {
-                view.isbn13TV.text = " ISBN13 $it"
+                view.isbn13TV.text = it
             })
 
             category.observe(this@BookInfoFragment, Observer {})
 
             rating.observe(this@BookInfoFragment, Observer {
-                view.ratingsTV.text = "$it / 5"
+                view.ratingsTV.text = it
             })
 
             ratingsCount.observe(this@BookInfoFragment, Observer {
-                view.ratingsCountTV.text = " ⚫ $it ${if (it > 1) "ratings" else "rating"}"
+                view.ratingsCountTV.text = it
             })
 
             imageUrl.observe(this@BookInfoFragment, Observer {
@@ -84,14 +83,11 @@ class BookInfoFragment : Fragment() {
             })
 
             pageCount.observe(this@BookInfoFragment, Observer {
-                view.pageCountTV.text = "$it pages ⚫ "
+                view.pageCountTV.text = it
             })
 
             description.observe(this@BookInfoFragment, Observer {
-                if (it.isNotEmpty()) {
-                    view.descriptionTV.text = fromHtml(it)
-                } else
-                    view.descriptionTV.text = "Not available"
+                    view.descriptionTV.text = it
             })
 
         }

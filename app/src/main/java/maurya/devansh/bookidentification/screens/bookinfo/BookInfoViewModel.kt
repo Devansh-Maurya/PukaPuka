@@ -1,10 +1,10 @@
 package maurya.devansh.bookidentification.screens.bookinfo
 
-import android.util.Log
 import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import maurya.devansh.bookidentification.model.BookVolume
+import maurya.devansh.bookidentification.util.fromHtml
 import org.koin.standalone.KoinComponent
 import org.koin.standalone.inject
 
@@ -22,29 +22,26 @@ class BookInfoViewModel(bookVolumeId: String) : ViewModel(), KoinComponent {
     val authors = MutableLiveData<String>()
     val isbn13 = MutableLiveData<String>()
     val category = MutableLiveData<String>()
-    val rating = MutableLiveData<Double>()
-    val ratingsCount = MutableLiveData<Int>()
+    val rating = MutableLiveData<String>()
+    val ratingsCount = MutableLiveData<String>()
     val imageUrl = MutableLiveData<String>()
-    val pageCount = MutableLiveData<Int>()
+    val pageCount = MutableLiveData<String>()
     val description = MutableLiveData<String>()
-    val publishedDate = MutableLiveData<String>()
 
     init {
-        Log.d("bookvolumeid", bookVolumeId)
-
         mediatorLiveData.addSource(bookInfoRepository.getBookVolumeObject(bookVolumeId)) {
             if (it != null) {
                 title.value = it.title
                 subtitle.value = it.subtitle
-                authors.value = it.authors
-                isbn13.value = it.isbn13
+                authors.value = "by ${it.authors}"
+                isbn13.value = "ISBN13 ${it.isbn13}"
                 category.value = it.category
-                rating.value = it.rating
-                ratingsCount.value = it.ratingsCount
+                rating.value = it.rating.toString() + " / 5"
+                ratingsCount.value = " ⚫ ${it.ratingsCount} ${if (it.ratingsCount > 1) "ratings" else "rating"}"
                 imageUrl.value = it.imageUrl
-                pageCount.value = it.pageCount
-                description.value = it.description
-                publishedDate.value = it.publishedDate
+                pageCount.value = it.pageCount.toString() + " pages ⚫ "
+                description.value = if (it.description.isNotEmpty()) fromHtml(it.description).toString()
+                                    else "Not available"
             }
         }
 
