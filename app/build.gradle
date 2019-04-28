@@ -76,6 +76,9 @@ dependencies {
     //Navigation Components
     implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
     implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
+
+    //Lifecycle extensions dependency (for ViewModel)
+    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
 }
 
 apply plugin: 'com.google.gms.google-services'

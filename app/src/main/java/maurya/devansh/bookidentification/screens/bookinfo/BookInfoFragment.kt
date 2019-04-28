@@ -10,6 +10,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.navArgs
 import com.android.volley.Request
 import com.android.volley.Response
@@ -30,11 +31,18 @@ class BookInfoFragment : Fragment() {
 
     private val args: BookInfoFragmentArgs by navArgs()
 
+    private lateinit var viewModel: BookInfoViewModel
+    private lateinit var viewModelFactory: BookInfoViewModelFactory
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_book_info, container, false)
-//        Blurry.with(context).radius(25).sampling(2).onto(view.frame.backgroundImage)
+
+        viewModelFactory = BookInfoViewModelFactory(args.bookVolumeId)
+        viewModel = ViewModelProviders.of(this, viewModelFactory)
+            .get(BookInfoViewModel::class.java)
+
         return view
     }
 
