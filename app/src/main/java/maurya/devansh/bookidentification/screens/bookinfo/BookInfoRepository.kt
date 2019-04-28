@@ -57,6 +57,7 @@ class BookInfoRepository(private val context: Context) {
             description = item.getDescription()
             selfLink = item.getSelfLink()
             infoLink = item.getInfoLink()
+            //previewLink = item.getP
             imageUrl = item.getThumbnailImageUrl()
         }
 

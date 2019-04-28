@@ -113,6 +113,7 @@ class BookInfoFragment : Fragment() {
                     view.buyButton.visibility = View.GONE
             })
 
+
             shareText.observe(this@BookInfoFragment, Observer {
                 this@BookInfoFragment.shareText = it
             })

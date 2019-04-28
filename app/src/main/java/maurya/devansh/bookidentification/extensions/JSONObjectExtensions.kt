@@ -19,6 +19,7 @@ import maurya.devansh.bookidentification.consts.GoogleBooksVolumesConsts.SALE_IN
 import maurya.devansh.bookidentification.consts.GoogleBooksVolumesConsts.SELF_LINK
 import maurya.devansh.bookidentification.consts.GoogleBooksVolumesConsts.SMALL_THUMBNAIL_URL
 import maurya.devansh.bookidentification.consts.GoogleBooksVolumesConsts.SUBTITLE
+import maurya.devansh.bookidentification.consts.GoogleBooksVolumesConsts.THUMBNAIL_URL
 import maurya.devansh.bookidentification.consts.GoogleBooksVolumesConsts.TITLE
 import maurya.devansh.bookidentification.consts.GoogleBooksVolumesConsts.VOLUME_INFO
 import org.json.JSONArray

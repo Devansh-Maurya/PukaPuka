@@ -19,5 +19,6 @@ data class BookVolume (
     var description: String = "",
     var buyLink: String = "",
     var selfLink: String = "",
-    var infoLink: String = ""
+    var infoLink: String = "",
+    var previewLink: String = ""
 )
