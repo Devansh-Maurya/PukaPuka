@@ -17,7 +17,7 @@ import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
 import kotlinx.android.synthetic.main.fragment_books_list.view.*
 import maurya.devansh.bookidentification.R
-import maurya.devansh.bookidentification.consts.GoogleBooksVolumesListConsts
+import maurya.devansh.bookidentification.consts.GoogleBooksVolumesConsts
 import maurya.devansh.bookidentification.extensions.getAuthorsListAsString
 import maurya.devansh.bookidentification.extensions.getSmallThumbnailImageUrl
 import maurya.devansh.bookidentification.extensions.getSubtitle
@@ -87,7 +87,7 @@ class BooksListFragment : Fragment(), OnBookItemSelectedListener {
         val bookListItem = BooksListItem()
 
         bookListItem.apply {
-            id = item[GoogleBooksVolumesListConsts.ID] as String
+            id = item[GoogleBooksVolumesConsts.ID] as String
             title = item.getTitle()
             subtitle = item.getSubtitle()
             authors = item.getAuthorsListAsString()

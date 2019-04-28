@@ -1,6 +1,9 @@
 package maurya.devansh.bookidentification.screens.bookinfo
 
 
+import android.annotation.SuppressLint
+import android.graphics.Bitmap
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -14,9 +17,14 @@ import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
+import com.bumptech.glide.request.target.CustomTarget
+import com.bumptech.glide.request.transition.Transition
 import jp.wasabeef.glide.transformations.BlurTransformation
 import kotlinx.android.synthetic.main.fragment_book_info.view.*
 import maurya.devansh.bookidentification.R
+import maurya.devansh.bookidentification.extensions.*
+import maurya.devansh.bookidentification.model.BookVolume
+import org.json.JSONObject
 
 class BookInfoFragment : Fragment() {
 
@@ -36,21 +44,64 @@ class BookInfoFragment : Fragment() {
         val queue = Volley.newRequestQueue(context)
         val url = "https://www.googleapis.com/books/v1/volumes/" + args.bookVolumeId
 
-        val requestOptions = RequestOptions()
-        requestOptions.transform(BlurTransformation(30))
-
-        Glide.with(context!!).load(R.drawable.sample)
-                .apply(requestOptions)
-                .into(view.backgroundImage)
-
         val jsonObjectRequest = JsonObjectRequest(Request.Method.GET, url, null,
             Response.Listener {
                 Log.d("Response", it.toString())
+                val bookVolume = makeBookVolumeObject(it)
+                setBookImage(view, bookVolume.imageUrl)
             },
             Response.ErrorListener {
                 Log.d("Error", "Error")
             })
 
         queue.add(jsonObjectRequest)
+    }
+
+    @SuppressLint("CheckResult")
+    private fun setBookImage(view: View, imageUrl: String) {
+
+        var bitmap: Bitmap
+
+        val requestOptions = RequestOptions()
+        requestOptions.transform(BlurTransformation(24))
+
+        Glide.with(context!!)
+                .asBitmap()
+                .load(imageUrl)
+                .into(object : CustomTarget<Bitmap>() {
+                    override fun onResourceReady(resource: Bitmap, transition: Transition<in Bitmap>?) {
+                        Glide.with(context!!).load(resource)
+                                .apply(requestOptions).into(view.backgroundImage)
+                        Glide.with(context!!).load(resource).into(view.coverImageView)
+                    }
+
+                    override fun onLoadCleared(placeholder: Drawable?) {
+                        view.backgroundImage.invalidate()
+                        view.coverImageView.invalidate()
+                    }
+                })
+    }
+
+    private fun makeBookVolumeObject(item: JSONObject): BookVolume {
+        val bookVolume = BookVolume()
+
+        bookVolume.apply {
+            title = item.getTitle()
+            subtitle = item.getSubtitle()
+            authors = item.getAuthorsListAsString()
+            isbn13 = item.getISBN13()
+            category = item.getCategory()
+            rating = item.getRating()
+            ratingsCount = item.getRatingsCount()
+            pageCount = item.getPageCount()
+            description = item.getDescription()
+            publishedDate = item.getPublishedDate()
+            imageUrl = item.getCoverImageUrl()
+            if (imageUrl.isEmpty())
+                imageUrl = item.getSmallThumbnailImageUrl()
+        }
+
+        return bookVolume
+
     }
 }

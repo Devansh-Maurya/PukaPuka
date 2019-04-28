@@ -15,6 +15,7 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.navHostFragment)
         if (navController.currentDestination?.id == R.id.booksListFragment) {
             navController.navigate(R.id.action_booksListFragment_to_scanOptionsFragment)
-        }
+        } else
+            super.onBackPressed()
     }
 }

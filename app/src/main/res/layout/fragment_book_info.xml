@@ -1,32 +1,149 @@
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:fitsSystemWindows="true">
 
-    <FrameLayout
-        android:id="@+id/frame"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_200sdp">
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true"
+        android:orientation="vertical">
 
-        <LinearLayout
+        <FrameLayout
+            android:id="@+id/frame"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="@dimen/_200sdp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <ImageView
+                    android:id="@+id/backgroundImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/sample"
+                    android:scaleType="centerCrop"
+                    android:foreground="#99000000"/>
+            </LinearLayout>
+
             <ImageView
-                android:id="@+id/backgroundImage"
+                android:id="@+id/coverImageView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:src="@drawable/sample"
-                android:scaleType="centerCrop"
-                android:foreground="#99000000"/>
-        </LinearLayout>
+                android:padding="@dimen/_10sdp"/>
+        </FrameLayout>
 
-        <ImageView
-            android:id="@+id/coverImageView"
+        <TextView
+            android:id="@+id/titleTV"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:src="@drawable/sample"
-            android:padding="@dimen/_10sdp"/>
-    </FrameLayout>
-</LinearLayout>
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_8sdp"
+            android:layout_marginRight="@dimen/_8sdp"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:textSize="22sp"
+            android:ellipsize="end"
+            android:maxLines="3"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:gravity="center_horizontal"
+            tools:text="@tools:sample/lorem" />
+
+        <TextView
+            android:id="@+id/subtitleTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_8sdp"
+            android:layout_marginRight="@dimen/_8sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:textSize="16sp"
+            android:ellipsize="end"
+            android:maxLines="3"
+            android:textColor="@color/black"
+            android:gravity="center_horizontal"
+            tools:text="@tools:sample/lorem" />
+
+        <TextView
+            android:id="@+id/authorsTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_8sdp"
+            android:layout_marginRight="@dimen/_8sdp"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:layout_marginBottom="@dimen/_16sdp"
+            android:textSize="14sp"
+            android:ellipsize="end"
+            android:maxLines="3"
+            android:textColor="@color/black"
+            android:gravity="center_horizontal"
+            tools:text="@tools:sample/lorem" />
+
+        <include
+            layout="@layout/divider" />
+
+        <TextView
+            android:id="@+id/ratingsTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginBottom="@dimen/_8sdp"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:gravity="center_horizontal"/>
+
+        <include
+            layout="@layout/divider" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Book Description"
+            android:gravity="center_horizontal"
+            android:textAllCaps="true"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:paddingTop="@dimen/_16sdp"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:id="@+id/descriptionTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginBottom="@dimen/_16sdp"
+            android:textSize="15sp"
+            tools:text="@tools:sample/lorem"/>
+
+        <include
+            layout="@layout/divider" />
+
+        <TextView
+            android:id="@+id/pagesPublishedISBNTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:paddingStart="@dimen/_16sdp"
+            android:paddingEnd="@dimen/_16sdp"
+            android:textSize="12sp"
+            android:paddingTop="@dimen/_8sdp"
+            android:paddingBottom="@dimen/_8sdp"/>
+
+        <include
+            layout="@layout/divider" />
+
+        <Button
+            android:id="@+id/buyButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:layout_gravity="center_horizontal"
+            android:text="Buy Now"
+            android:background="@color/colorPrimary"
+            android:textColor="@color/white"
+            android:layout_marginBottom="@dimen/_24sdp"/>
+
+    </LinearLayout>
+</ScrollView>
