@@ -14,44 +14,26 @@
             app:destination="@id/booksListFragment"
             app:enterAnim="@anim/nav_default_pop_exit_anim" />
     </fragment>
-    <fragment
-        android:id="@+id/scanOptionsFragment"
+    <fragment android:id="@+id/scanOptionsFragment"
         android:name="maurya.devansh.bookidentification.screens.options.ScanOptionsFragment"
-        android:label="fragment_scan_options"
-        tools:layout="@layout/fragment_scan_options" >
-        <action
-            android:id="@+id/action_scanOptionsFragment_to_bookScanFragment"
+        android:label="Pukapuka" tools:layout="@layout/fragment_scan_options">
+        <action android:id="@+id/action_scanOptionsFragment_to_bookScanFragment"
             app:destination="@id/bookScanFragment" />
-        <action
-            android:id="@+id/action_scanOptionsFragment_to_placeholder"
+        <action android:id="@+id/action_scanOptionsFragment_to_placeholder"
             app:destination="@id/placeholder" />
     </fragment>
-    <fragment
-        android:id="@+id/bookInfoFragment"
+    <fragment android:id="@+id/bookInfoFragment"
         android:name="maurya.devansh.bookidentification.screens.bookinfo.BookInfoFragment"
-        android:label="fragment_book_info"
-        tools:layout="@layout/fragment_book_info" >
-        <argument
-            android:name="bookVolumeId"
-            app:argType="string"
-            android:defaultValue='""' />
+        android:label="Selected Book" tools:layout="@layout/fragment_book_info">
+        <argument android:name="bookVolumeId" android:defaultValue='""' app:argType="string" />
     </fragment>
-    <fragment
-        android:id="@+id/booksListFragment"
+    <fragment android:id="@+id/booksListFragment"
         android:name="maurya.devansh.bookidentification.screens.bookslist.BooksListFragment"
-        android:label="fragment_books_list"
-        tools:layout="@layout/fragment_books_list" >
-        <action
-            android:id="@+id/action_bookSelected"
-            app:destination="@id/bookInfoFragment" />
-        <argument
-            android:name="queryString"
-            app:argType="string"
-            android:defaultValue='""' />
-        <action
-            android:id="@+id/action_booksListFragment_to_scanOptionsFragment"
-            app:destination="@id/scanOptionsFragment"
-            app:popUpTo="@+id/scanOptionsFragment"
+        android:label="Scan Results" tools:layout="@layout/fragment_books_list">
+        <action android:id="@+id/action_bookSelected" app:destination="@id/bookInfoFragment" />
+        <argument android:name="queryString" android:defaultValue='""' app:argType="string" />
+        <action android:id="@+id/action_booksListFragment_to_scanOptionsFragment"
+            app:destination="@id/scanOptionsFragment" app:popUpTo="@+id/scanOptionsFragment"
             app:popUpToInclusive="false" />
     </fragment>
     <fragment android:id="@+id/placeholder" >

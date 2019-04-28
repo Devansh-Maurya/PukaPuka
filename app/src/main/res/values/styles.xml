@@ -11,9 +11,12 @@
     <style name="OptionsTextStyle">
         <item name="android:layout_marginTop">@dimen/_4sdp</item>
         <item name="android:textAllCaps">true</item>
-        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textColor">@color/white</item>
         <item name="android:textSize">16sp</item>
         <item name="android:textStyle">bold</item>
+        <item name="android:background">@drawable/option_button_background</item>
+        <item name="android:paddingStart">@dimen/_8sdp</item>
+        <item name="android:paddingEnd">@dimen/_8sdp</item>
     </style>
 
     <style name="AppTitleTextAppearance">

@@ -18,6 +18,7 @@ import com.bumptech.glide.request.target.CustomTarget
 import com.bumptech.glide.request.transition.Transition
 import jp.wasabeef.glide.transformations.BlurTransformation
 import kotlinx.android.synthetic.main.fragment_book_info.view.*
+import maurya.devansh.bookidentification.MainActivity
 import maurya.devansh.bookidentification.R
 
 class BookInfoFragment : Fragment() {
@@ -61,6 +62,7 @@ class BookInfoFragment : Fragment() {
         viewModel.apply {
             title.observe(this@BookInfoFragment, Observer {
                 view.titleTV.text = it
+                (activity as MainActivity).supportActionBar?.title = it
             })
 
             subtitle.observe(this@BookInfoFragment, Observer {

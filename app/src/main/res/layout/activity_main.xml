@@ -15,6 +15,7 @@
         android:background="@color/colorPrimary"
         app:title="Pukapuka"
         android:theme="@style/ToolbarTheme"
+        android:elevation="@dimen/_12sdp"
         app:titleTextAppearance="@style/AppTitleTextAppearance" />
 
     <fragment

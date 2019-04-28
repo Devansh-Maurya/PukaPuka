@@ -180,17 +180,6 @@
                 android:layout_marginTop="@dimen/_16sdp" >
 
                 <Button
-                    android:id="@+id/previewButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:text="Preview"
-                    android:background="@color/colorPrimary"
-                    android:textColor="@color/white"
-                    android:layout_marginBottom="@dimen/_24sdp"
-                    android:layout_marginRight="@dimen/_50sdp" />
-
-                <Button
                     android:id="@+id/buyButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
