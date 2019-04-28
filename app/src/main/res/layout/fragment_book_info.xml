@@ -1,203 +1,215 @@
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    android:fitsSystemWindows="true">
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:fitsSystemWindows="true"
+    android:orientation="vertical">
 
-    <LinearLayout
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fitsSystemWindows="true"
-        android:orientation="vertical">
+        android:layout_height="?attr/actionBarSize"
+        app:titleTextColor="@color/white"
+        app:title="Book"
+        app:menu="@menu/share_menu_item"
+        android:background="@color/colorPrimary"/>
 
-        <FrameLayout
-            android:id="@+id/frame"
+    <ScrollView android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_200sdp">
+            android:layout_height="wrap_content"
+            android:fitsSystemWindows="true"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:id="@+id/frame"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_200sdp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <ImageView
+                        android:id="@+id/backgroundImage"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:foreground="#88000000"/>
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/coverImageView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="@dimen/_14sdp"/>
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/titleTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_8sdp"
+                android:layout_marginRight="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:textSize="22sp"
+                android:ellipsize="end"
+                android:maxLines="3"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:gravity="center_horizontal"
+                tools:text="@tools:sample/lorem" />
+
+            <TextView
+                android:id="@+id/subtitleTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_8sdp"
+                android:layout_marginRight="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:textSize="16sp"
+                android:ellipsize="end"
+                android:maxLines="3"
+                android:textColor="@color/black"
+                android:gravity="center_horizontal"
+                tools:text="@tools:sample/lorem" />
+
+            <TextView
+                android:id="@+id/authorsTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_8sdp"
+                android:layout_marginRight="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:layout_marginBottom="@dimen/_16sdp"
+                android:textSize="14sp"
+                android:ellipsize="end"
+                android:maxLines="3"
+                android:textColor="@color/black"
+                android:gravity="center_horizontal"
+                tools:text="@tools:sample/lorem" />
+
+            <include
+                layout="@layout/divider" />
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
-                <ImageView
-                    android:id="@+id/backgroundImage"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:scaleType="centerCrop"
-                    android:foreground="#88000000"/>
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginBottom="@dimen/_8sdp"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:gravity="center_horizontal"
+                android:layout_gravity="center_horizontal"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="⭐ " />
+
+                <TextView
+                    android:id="@+id/ratingsTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/ratingsCountTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
             </LinearLayout>
 
-            <ImageView
-                android:id="@+id/coverImageView"
+            <include
+                layout="@layout/divider" />
+
+            <TextView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:padding="@dimen/_14sdp"/>
-        </FrameLayout>
-
-        <TextView
-            android:id="@+id/titleTV"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/_8sdp"
-            android:layout_marginRight="@dimen/_8sdp"
-            android:layout_marginTop="@dimen/_16sdp"
-            android:textSize="22sp"
-            android:ellipsize="end"
-            android:maxLines="3"
-            android:textStyle="bold"
-            android:textColor="@color/black"
-            android:gravity="center_horizontal"
-            tools:text="@tools:sample/lorem" />
-
-        <TextView
-            android:id="@+id/subtitleTV"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/_8sdp"
-            android:layout_marginRight="@dimen/_8sdp"
-            android:layout_marginTop="@dimen/_8sdp"
-            android:textSize="16sp"
-            android:ellipsize="end"
-            android:maxLines="3"
-            android:textColor="@color/black"
-            android:gravity="center_horizontal"
-            tools:text="@tools:sample/lorem" />
-
-        <TextView
-            android:id="@+id/authorsTV"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/_8sdp"
-            android:layout_marginRight="@dimen/_8sdp"
-            android:layout_marginTop="@dimen/_16sdp"
-            android:layout_marginBottom="@dimen/_16sdp"
-            android:textSize="14sp"
-            android:ellipsize="end"
-            android:maxLines="3"
-            android:textColor="@color/black"
-            android:gravity="center_horizontal"
-            tools:text="@tools:sample/lorem" />
-
-        <include
-            layout="@layout/divider" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_8sdp"
-            android:layout_marginBottom="@dimen/_8sdp"
-            android:layout_marginStart="@dimen/_8sdp"
-            android:layout_marginEnd="@dimen/_8sdp"
-            android:gravity="center_horizontal"
-            android:layout_gravity="center_horizontal"
-            android:orientation="horizontal" >
-            
-            <TextView
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="⭐ " />
+                android:text="Book Description"
+                android:gravity="center_horizontal"
+                android:textAllCaps="true"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:paddingTop="@dimen/_16sdp"
+                android:textColor="@color/black"/>
 
             <TextView
-                android:id="@+id/ratingsTV"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:id="@+id/descriptionTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_16sdp"
+                android:layout_marginEnd="@dimen/_16sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginBottom="@dimen/_16sdp"
+                android:textSize="15sp"
+                tools:text="@tools:sample/lorem"/>
 
-            <TextView
-                android:id="@+id/ratingsCountTV"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+            <include
+                layout="@layout/divider" />
 
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:paddingStart="@dimen/_16sdp"
+                android:paddingEnd="@dimen/_16sdp"
+                android:paddingTop="@dimen/_8sdp"
+                android:paddingBottom="@dimen/_8sdp"
+                android:layout_gravity="center_horizontal">
+
+                <TextView
+                    android:id="@+id/pageCountTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/publishedDateTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/isbn13TV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+
+            <include
+                layout="@layout/divider" />
+
+            <LinearLayout android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="@dimen/_16sdp" >
+
+                <Button
+                    android:id="@+id/previewButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="Preview"
+                    android:background="@color/colorPrimary"
+                    android:textColor="@color/white"
+                    android:layout_marginBottom="@dimen/_24sdp"
+                    android:layout_marginRight="@dimen/_50sdp" />
+
+                <Button
+                    android:id="@+id/buyButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:layout_gravity="center_horizontal"
+                    android:text="Buy Now"
+                    android:background="@color/colorPrimary"
+                    android:textColor="@color/white"
+                    android:layout_marginBottom="@dimen/_24sdp"/>
+            </LinearLayout>
         </LinearLayout>
-
-        <include
-            layout="@layout/divider" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Book Description"
-            android:gravity="center_horizontal"
-            android:textAllCaps="true"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:paddingTop="@dimen/_16sdp"
-            android:textColor="@color/black"/>
-
-        <TextView
-            android:id="@+id/descriptionTV"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_16sdp"
-            android:layout_marginEnd="@dimen/_16sdp"
-            android:layout_marginTop="@dimen/_8sdp"
-            android:layout_marginBottom="@dimen/_16sdp"
-            android:textSize="15sp"
-            tools:text="@tools:sample/lorem"/>
-
-        <include
-            layout="@layout/divider" />
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:paddingStart="@dimen/_16sdp"
-            android:paddingEnd="@dimen/_16sdp"
-            android:paddingTop="@dimen/_8sdp"
-            android:paddingBottom="@dimen/_8sdp"
-            android:layout_gravity="center_horizontal">
-
-            <TextView
-                android:id="@+id/pageCountTV"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="12sp" />
-
-            <TextView
-                android:id="@+id/publishedDateTV"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="12sp" />
-
-            <TextView
-                android:id="@+id/isbn13TV"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="12sp" />
-
-        </LinearLayout>
-
-        <include
-            layout="@layout/divider" />
-
-        <LinearLayout android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_horizontal"
-            android:layout_marginTop="@dimen/_16sdp" >
-
-            <Button
-                android:id="@+id/previewButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:text="Preview"
-                android:background="@color/colorPrimary"
-                android:textColor="@color/white"
-                android:layout_marginBottom="@dimen/_24sdp"
-                android:layout_marginRight="@dimen/_50sdp" />
-
-            <Button
-                android:id="@+id/buyButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_16sdp"
-                android:layout_gravity="center_horizontal"
-                android:text="Buy Now"
-                android:background="@color/colorPrimary"
-                android:textColor="@color/white"
-                android:layout_marginBottom="@dimen/_24sdp"/>
-        </LinearLayout>
-
-    </LinearLayout>
-</ScrollView>
+    </ScrollView>
+</LinearLayout>

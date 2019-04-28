@@ -5,9 +5,7 @@ import android.annotation.SuppressLint
 import android.graphics.Bitmap
 import android.graphics.drawable.Drawable
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -35,15 +33,19 @@ class BookInfoFragment : Fragment() {
         viewModelFactory = BookInfoViewModelFactory(args.bookVolumeId)
         viewModel = ViewModelProviders.of(this, viewModelFactory)
             .get(BookInfoViewModel::class.java)
-
         //A blank observer for MediatorLiveData
         viewModel.mediatorLiveData.observe(this, Observer {  })
-
         observeBookVolumeInfoLiveDatas(view)
+
+        setHasOptionsMenu(true)
 
         return view
     }
 
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.share_menu_item, menu)
+    }
 
     private fun observeBookVolumeInfoLiveDatas(view: View) {
         viewModel.apply {
@@ -87,7 +89,7 @@ class BookInfoFragment : Fragment() {
             })
 
             description.observe(this@BookInfoFragment, Observer {
-                    view.descriptionTV.text = it
+                view.descriptionTV.text = it
             })
 
             buyLink.observe(this@BookInfoFragment, Observer {
