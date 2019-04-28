@@ -63,7 +63,12 @@ class BooksListFragment : Fragment(), OnBookItemSelectedListener {
                         booksList.add(bookListItem)
                     }
 
+                    view.animationView.pauseAnimation()
+                    view.animationView.visibility = View.GONE
+
                     setUpRecyclerView(view.recyclerView, booksList)
+                } else {
+                    
                 }
             },
             Response.ErrorListener {
