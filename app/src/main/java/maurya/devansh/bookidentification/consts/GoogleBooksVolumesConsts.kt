@@ -26,4 +26,6 @@ object GoogleBooksVolumesConsts {
     const val MEDIUM_IMAGE_URL = "medium"
     const val SALE_INFO = "saleInfo"
     const val BUY_LINK = "buyLink"
+    const val SELF_LINK = "selfLink"
+    const val INFO_LINK = "infoLink"
 }

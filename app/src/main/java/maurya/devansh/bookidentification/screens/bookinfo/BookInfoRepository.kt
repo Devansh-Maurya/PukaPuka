@@ -30,7 +30,6 @@ class BookInfoRepository(private val context: Context) {
             Response.Listener {
                 Log.d("Response", it.toString())
                 val bookVolumeData = makeBookVolumeObject(it)
-                bookVolumeData.bookVolumeRequestUrl = url
                 bookVolume.value = bookVolumeData
                 return@Listener
             },
@@ -56,6 +55,9 @@ class BookInfoRepository(private val context: Context) {
             ratingsCount = item.getRatingsCount()
             pageCount = item.getPageCount()
             description = item.getDescription()
+            selfLink = item.getSelfLink()
+            infoLink = item.getInfoLink()
+
             imageUrl = item.getCoverImageUrl()
             if (imageUrl.isEmpty())
                 imageUrl = item.getSmallThumbnailImageUrl()

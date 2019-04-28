@@ -7,6 +7,7 @@ import maurya.devansh.bookidentification.consts.GoogleBooksVolumesConsts.DESCRIP
 import maurya.devansh.bookidentification.consts.GoogleBooksVolumesConsts.IDENTIFIER
 import maurya.devansh.bookidentification.consts.GoogleBooksVolumesConsts.IMAGE_LINKS
 import maurya.devansh.bookidentification.consts.GoogleBooksVolumesConsts.INDUSTRY_IDENTIFIERS
+import maurya.devansh.bookidentification.consts.GoogleBooksVolumesConsts.INFO_LINK
 import maurya.devansh.bookidentification.consts.GoogleBooksVolumesConsts.ISBN_13
 import maurya.devansh.bookidentification.consts.GoogleBooksVolumesConsts.ISBN_TYPE
 import maurya.devansh.bookidentification.consts.GoogleBooksVolumesConsts.MAIN_CATEGORY
@@ -15,6 +16,7 @@ import maurya.devansh.bookidentification.consts.GoogleBooksVolumesConsts.PAGE_CO
 import maurya.devansh.bookidentification.consts.GoogleBooksVolumesConsts.PUBLISHED_DATE
 import maurya.devansh.bookidentification.consts.GoogleBooksVolumesConsts.RATINGS_COUNT
 import maurya.devansh.bookidentification.consts.GoogleBooksVolumesConsts.SALE_INFO
+import maurya.devansh.bookidentification.consts.GoogleBooksVolumesConsts.SELF_LINK
 import maurya.devansh.bookidentification.consts.GoogleBooksVolumesConsts.SMALL_THUMBNAIL_URL
 import maurya.devansh.bookidentification.consts.GoogleBooksVolumesConsts.SUBTITLE
 import maurya.devansh.bookidentification.consts.GoogleBooksVolumesConsts.TITLE
@@ -148,5 +150,14 @@ fun JSONObject.getBuyLink(): String {
     val saleInfo = getJSONObject(SALE_INFO)
     return if (saleInfo.has(BUY_LINK))
         saleInfo.getString(BUY_LINK)
+    else ""
+}
+
+fun JSONObject.getSelfLink() = getString(SELF_LINK)
+
+fun JSONObject.getInfoLink(): String {
+    val volumeInfo = getVolumeInfo()
+    return if (volumeInfo.has(INFO_LINK))
+        volumeInfo.getString(INFO_LINK)
     else ""
 }

@@ -48,7 +48,7 @@ class BookInfoViewModel(bookVolumeId: String) : ViewModel(), KoinComponent {
 
                 shareText.value = "Check out ${it.title}" +
                         if (it.subtitle.isNotEmpty()) ": ${it.subtitle}" else {""} + " book" +
-                                "\n\n${it.bookVolumeRequestUrl}\n\n-By *Pakupaku* app"
+                                "\n\n${it.infoLink}\n\n-By *Pukapuka* app"
             }
         }
 
