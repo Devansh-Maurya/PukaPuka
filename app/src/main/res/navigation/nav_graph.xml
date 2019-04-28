@@ -13,6 +13,9 @@
             android:id="@+id/action_coverScanDone"
             app:destination="@id/booksListFragment"
             app:enterAnim="@anim/nav_default_pop_exit_anim" />
+        <action
+            android:id="@+id/action_bookScanFragment_to_scanOptionsFragment"
+            app:destination="@id/scanOptionsFragment" />
     </fragment>
     <fragment android:id="@+id/scanOptionsFragment"
         android:name="maurya.devansh.bookidentification.screens.options.ScanOptionsFragment"
@@ -26,6 +29,9 @@
         android:name="maurya.devansh.bookidentification.screens.bookinfo.BookInfoFragment"
         android:label="Selected Book" tools:layout="@layout/fragment_book_info">
         <argument android:name="bookVolumeId" android:defaultValue='""' app:argType="string" />
+        <action
+            android:id="@+id/action_bookInfoFragment_to_booksListFragment"
+            app:destination="@id/booksListFragment" />
     </fragment>
     <fragment android:id="@+id/booksListFragment"
         android:name="maurya.devansh.bookidentification.screens.bookslist.BooksListFragment"
@@ -35,10 +41,22 @@
         <action android:id="@+id/action_booksListFragment_to_scanOptionsFragment"
             app:destination="@id/scanOptionsFragment" app:popUpTo="@+id/scanOptionsFragment"
             app:popUpToInclusive="false" />
+        <action
+            android:id="@+id/action_noResultsFound"
+            app:destination="@id/noResultsFoundFragment" />
     </fragment>
     <fragment android:id="@+id/placeholder" >
         <action
             android:id="@+id/action_placeholder_to_booksListFragment"
             app:destination="@id/booksListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/noResultsFoundFragment"
+        android:name="maurya.devansh.bookidentification.screens.noresultsfound.NoResultsFoundFragment"
+        android:label="No Results Found"
+        tools:layout="@layout/fragment_no_results_found" >
+        <action
+            android:id="@+id/action_noResultsFoundFragment_to_scanOptionsFragment"
+            app:destination="@id/scanOptionsFragment" />
     </fragment>
 </navigation>

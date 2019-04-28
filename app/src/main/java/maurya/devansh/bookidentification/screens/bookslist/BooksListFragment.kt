@@ -68,11 +68,12 @@ class BooksListFragment : Fragment(), OnBookItemSelectedListener {
 
                     setUpRecyclerView(view.recyclerView, booksList)
                 } else {
-                    
+                    noBooksFound(view)
                 }
             },
             Response.ErrorListener {
                 Log.d("Error", "Error")
+                noBooksFound(view)
             })
 
         queue.add(jsonObjectRequest)
@@ -103,5 +104,11 @@ class BooksListFragment : Fragment(), OnBookItemSelectedListener {
         }
 
         return bookListItem
+    }
+
+    private fun noBooksFound(view: View) {
+        view.animationView.pauseAnimation()
+        view.animationView.visibility = View.GONE
+        findNavController().navigate(R.id.action_noResultsFound)
     }
 }
