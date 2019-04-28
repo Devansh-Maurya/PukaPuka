@@ -26,14 +26,16 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:scaleType="centerCrop"
-                        android:foreground="#88000000"/>
+                        android:foreground="#88000000"
+                        android:src="@drawable/placeholder_cover"/>
                 </LinearLayout>
 
                 <ImageView
                     android:id="@+id/coverImageView"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:padding="@dimen/_14sdp"/>
+                    android:padding="@dimen/_14sdp"
+                    android:src="@drawable/placeholder_cover"/>
             </FrameLayout>
 
             <TextView

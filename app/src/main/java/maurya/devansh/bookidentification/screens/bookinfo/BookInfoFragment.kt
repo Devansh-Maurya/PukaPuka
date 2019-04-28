@@ -124,17 +124,22 @@ class BookInfoFragment : Fragment() {
     @SuppressLint("CheckResult")
     private fun setBookImage(view: View, imageUrl: String) {
 
-        val requestOptions = RequestOptions()
-        requestOptions.transform(BlurTransformation(20))
+        val blurRequestOptions = RequestOptions()
+        blurRequestOptions.transform(BlurTransformation(20))
+        blurRequestOptions.placeholder(R.drawable.placeholder_cover)
 
         Glide.with(context!!)
                 .asBitmap()
                 .load(imageUrl)
                 .into(object : CustomTarget<Bitmap>() {
                     override fun onResourceReady(resource: Bitmap, transition: Transition<in Bitmap>?) {
+                        Glide.with(context!!).load(resource).apply(blurRequestOptions).into(view.backgroundImage)
+                                .onLoadFailed(resources.getDrawable(R.drawable.ic_no_cover))
+
                         Glide.with(context!!).load(resource)
-                                .apply(requestOptions).into(view.backgroundImage)
-                        Glide.with(context!!).load(resource).into(view.coverImageView)
+                                .placeholder(R.drawable.placeholder_cover)
+                                .into(view.coverImageView)
+                                .onLoadFailed(resources.getDrawable(R.drawable.ic_no_cover))
                     }
 
                     override fun onLoadCleared(placeholder: Drawable?) {
