@@ -63,8 +63,15 @@ dependencies {
     implementation 'com.github.bumptech.glide:glide:4.9.0'
     kapt 'com.github.bumptech.glide:compiler:4.9.0'
 
+    //Glide transformations
+    implementation 'jp.wasabeef:glide-transformations:4.0.1'
+
     //Volley
     implementation 'com.android.volley:volley:1.1.1'
+
+    //Blurry
+    implementation 'jp.wasabeef:blurry:3.0.0'
+
 
     //Android Lifecycle dependency
     implementation "androidx.lifecycle:lifecycle-runtime:$lifecycle_version"
