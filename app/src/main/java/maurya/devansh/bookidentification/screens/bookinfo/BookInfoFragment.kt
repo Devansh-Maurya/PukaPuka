@@ -2,10 +2,12 @@ package maurya.devansh.bookidentification.screens.bookinfo
 
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.view.*
+import androidx.core.app.ShareCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -24,6 +26,8 @@ class BookInfoFragment : Fragment() {
 
     private lateinit var viewModel: BookInfoViewModel
     private lateinit var viewModelFactory: BookInfoViewModelFactory
+
+    private var shareText = ""
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -45,6 +49,12 @@ class BookInfoFragment : Fragment() {
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
         inflater.inflate(R.menu.share_menu_item, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.share)
+            startActivity(getShareIntent())
+        return true
     }
 
     private fun observeBookVolumeInfoLiveDatas(view: View) {
@@ -101,6 +111,10 @@ class BookInfoFragment : Fragment() {
                     view.buyButton.visibility = View.GONE
             })
 
+            shareText.observe(this@BookInfoFragment, Observer {
+                this@BookInfoFragment.shareText = it
+            })
+
         }
     }
 
@@ -127,4 +141,10 @@ class BookInfoFragment : Fragment() {
                     }
                 })
     }
+
+    private fun getShareIntent(): Intent =
+            ShareCompat.IntentBuilder.from(activity)
+                    .setText(shareText)
+                    .setType("text/plain")
+                    .intent
 }

@@ -28,6 +28,7 @@ class BookInfoViewModel(bookVolumeId: String) : ViewModel(), KoinComponent {
     val pageCount = MutableLiveData<String>()
     val description = MutableLiveData<String>()
     val buyLink = MutableLiveData<String>()
+    val shareText = MutableLiveData<String>()
 
     init {
         mediatorLiveData.addSource(bookInfoRepository.getBookVolumeObject(bookVolumeId)) {
@@ -44,6 +45,10 @@ class BookInfoViewModel(bookVolumeId: String) : ViewModel(), KoinComponent {
                 description.value = if (it.description.isNotEmpty()) fromHtml(it.description).toString()
                                     else "Not available"
                 buyLink.value = it.buyLink
+
+                shareText.value = "Check out ${it.title}" +
+                        if (it.subtitle.isNotEmpty()) ": ${it.subtitle}" else "" + " book" +
+                                "\n${it.bookVolumeRequestUrl}\n\n-By *Pakupaku app"
             }
         }
 
