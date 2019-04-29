@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import maurya.devansh.bookidentification.MainActivity
 import maurya.devansh.bookidentification.R
 
 class SplashScreenFragment : Fragment() {
@@ -22,6 +23,8 @@ class SplashScreenFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        (activity as MainActivity).supportActionBar?.hide()
 
         Handler().postDelayed({
             findNavController().navigate(R.id.action_appStart)

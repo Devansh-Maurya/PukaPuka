@@ -67,6 +67,7 @@
         <action
             android:id="@+id/action_appStart"
             app:destination="@id/scanOptionsFragment"
-            app:popUpTo="@+id/scanOptionsFragment" />
+            app:popUpTo="@+id/splashScreenFragment"
+            app:popUpToInclusive="true"/>
     </fragment>
 </navigation>
