@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/scanOptionsFragment">
+    app:startDestination="@id/splashScreenFragment">
     <fragment
         android:id="@+id/bookScanFragment"
         android:name="maurya.devansh.bookidentification.screens.coverscan.CoverScanFragment"
@@ -58,5 +58,15 @@
         <action
             android:id="@+id/action_noResultsFoundFragment_to_scanOptionsFragment"
             app:destination="@id/scanOptionsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/splashScreenFragment"
+        android:name="maurya.devansh.bookidentification.screens.splash.SplashScreenFragment"
+        android:label="fragment_splash_screen"
+        tools:layout="@layout/fragment_splash_screen" >
+        <action
+            android:id="@+id/action_appStart"
+            app:destination="@id/scanOptionsFragment"
+            app:popUpTo="@+id/scanOptionsFragment" />
     </fragment>
 </navigation>
