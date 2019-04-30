@@ -1,4 +1,4 @@
-# Book-identification-App
+# PukaPuka
 
 <p align="center">
   <img src="/app/src/main/ic_launcher-web.png">
