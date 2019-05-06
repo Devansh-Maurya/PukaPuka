@@ -49,7 +49,7 @@ dependencies {
     implementation 'com.intuit.sdp:sdp-android:1.0.6'
 
     //Firebase core
-    implementation 'com.google.firebase:firebase-core:16.0.8'
+    implementation 'com.google.firebase:firebase-core:16.0.9'
 
     //ML Kit Dependency
     implementation 'com.google.firebase:firebase-ml-vision:19.0.3'
