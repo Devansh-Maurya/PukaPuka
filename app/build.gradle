@@ -55,7 +55,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-ml-vision:19.0.3'
 
     //CameraKit dependencies
-    implementation 'com.camerakit:camerakit:1.0.0-beta3.10'
+    implementation 'com.camerakit:camerakit:1.0.0-beta3.12-expensify'
     implementation 'com.camerakit:jpegkit:0.2.2'
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.2.1'
 
