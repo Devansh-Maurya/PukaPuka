@@ -52,7 +52,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-core:16.0.9'
 
     //ML Kit Dependency
-    implementation 'com.google.firebase:firebase-ml-vision:19.0.3'
+    implementation 'com.google.firebase:firebase-ml-vision:20.0.0'
 
     //CameraKit dependencies
     implementation 'com.camerakit:camerakit:1.0.0-beta3.12-expensify'
