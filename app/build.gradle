@@ -73,7 +73,7 @@ dependencies {
     implementation 'org.koin:koin-android:2.0.0-GA2'
 
     //Koin for view model features
-    implementation "org.koin:koin-android-viewmodel:1.0.2"
+    implementation "org.koin:koin-android-viewmodel:2.0.1"
 
     //Lottie
     implementation 'com.airbnb.android:lottie:3.0.1'
