@@ -5,4 +5,4 @@
 </p>
 
 
-An app to identify books from their covers and give information about the book
+An Android app to identify books from their covers and give info, built using ML Kit's Text Recognition API, Android Jetpack Libraries and Google Books API
