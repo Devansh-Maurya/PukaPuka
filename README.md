@@ -1,7 +1,6 @@
-# PukaPuka
-
 <p align="center">
-  <img src="/app/src/main/ic_launcher-web.png">
+  <img src="/app/src/main/ic_launcher-web.png"  width="300" height="300">
+  <h1 align="center">PukaPuka</h1>
 </p>
 
 
