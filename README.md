@@ -17,15 +17,13 @@
 * The user can then click on an image that suits best with the scanned book cover and get information about it.
 
 ## Screenshots
-| First Header  | Second Header |
+| Home Screen  | Scanning the book |
 | ------------- | ------------- |
-| ![](https://github.com/Devansh-Maurya/PukaPuka/blob/master/screenshots/scan_options.jpeg)  | ![](https://github.com/Devansh-Maurya/PukaPuka/blob/master/screenshots/image2.jpg)  |
-| Content Cell  | Content Cell  |
-<img src="https://github.com/Devansh-Maurya/PukaPuka/blob/master/screenshots/scan_options.jpeg"  width="270" height="540">
-<img src="https://github.com/Devansh-Maurya/PukaPuka/blob/master/screenshots/image2.jpg"  width="270" height="540">
-<img src="https://github.com/Devansh-Maurya/PukaPuka/blob/master/screenshots/image4.jpg"  width="270" height="540">
-<img src="https://github.com/Devansh-Maurya/PukaPuka/blob/master/screenshots/image3.jpg"  width="270" height="540">
-<img src="https://github.com/Devansh-Maurya/PukaPuka/blob/master/screenshots/image1.jpg"  width="270" height="540">
+| ![](https://github.com/Devansh-Maurya/PukaPuka/blob/master/screenshots/home.png)  | ![](https://github.com/Devansh-Maurya/PukaPuka/blob/master/screenshots/book_scanning.png)  |
+
+| Matching books list  | Book details |
+| ------------- | ------------- |
+| ![](https://github.com/Devansh-Maurya/PukaPuka/blob/master/screenshots/books_list.png)  | ![](https://github.com/Devansh-Maurya/PukaPuka/blob/master/screenshots/book_details.png)  |
 
 ## Technologies Used
 
