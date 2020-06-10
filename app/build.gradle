@@ -70,7 +70,7 @@ dependencies {
     implementation 'com.android.volley:volley:1.1.1'
 
     // Koin for Android
-    implementation 'org.koin:koin-android:2.0.0-GA2'
+    implementation 'org.koin:koin-android:2.0.1'
 
     //Koin for view model features
     implementation "org.koin:koin-android-viewmodel:1.0.2"
