@@ -76,7 +76,7 @@ dependencies {
     implementation "org.koin:koin-android-viewmodel:1.0.2"
 
     //Lottie
-    implementation 'com.airbnb.android:lottie:3.0.1'
+    implementation 'com.airbnb.android:lottie:3.0.7'
 
     //Android Lifecycle dependency
     implementation "androidx.lifecycle:lifecycle-runtime:$lifecycle_version"
