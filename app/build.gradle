@@ -37,7 +37,7 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0-beta01'
 
     //App compat
-    implementation 'androidx.appcompat:appcompat:1.1.0-alpha04'
+    implementation 'androidx.appcompat:appcompat:1.1.0-rc01'
 
     //Kotlin extensions
     implementation 'androidx.core:core-ktx:1.2.0-alpha01'
